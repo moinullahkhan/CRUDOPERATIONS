@@ -1,0 +1,2 @@
+D:\React\CRUD\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\React\CRUD\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
