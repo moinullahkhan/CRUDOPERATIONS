@@ -1,0 +1,2 @@
+D:\React\CRUD\CRUC.DataModels\obj\Debug\CRUD.DataModels.csprojAssemblyReference.cache
+D:\React\CRUD\CRUC.DataModels\obj\Debug\CRUD.DataModels.csproj.CoreCompileInputs.cache

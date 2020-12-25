@@ -2,8 +2,6 @@
 using CRUD.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CRUD.Controllers
@@ -17,6 +15,7 @@ namespace CRUD.Controllers
         {
             postRepository = _postRepository;
         }
+
 
         [HttpGet]
         [Route("GetCategories")]
@@ -58,18 +57,18 @@ namespace CRUD.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("GetPost")]
-        public async Task<IActionResult> GetPost(int? postId)
+        [HttpGet()]
+        [Route("GetPost/{Id}")]
+        public async Task<IActionResult> GetPost(int? Id)
         {
-            if (postId == null)
+            if (Id == null)
             {
                 return BadRequest();
             }
 
             try
             {
-                var post = await postRepository.GetPost(postId);
+                var post = await postRepository.GetPost(Id);
 
                 if (post == null)
                 {
@@ -114,18 +113,18 @@ namespace CRUD.Controllers
 
         [HttpDelete]
         [Route("DeletePost")]
-        public async Task<IActionResult> DeletePost(int? postId)
+        public async Task<IActionResult> DeletePost(int? Id)
         {
             int result = 0;
 
-            if (postId == null)
+            if (Id == null)
             {
                 return BadRequest();
             }
 
             try
             {
-                result = await postRepository.DeletePost(postId);
+                result = await postRepository.DeletePost(Id);
                 if (result == 0)
                 {
                     return NotFound();
@@ -141,7 +140,6 @@ namespace CRUD.Controllers
 
 
         [HttpPut]
-        [Route("UpdatePost")]
         public async Task<IActionResult> UpdatePost([FromBody] Post model)
         {
             if (ModelState.IsValid)
@@ -168,3 +166,5 @@ namespace CRUD.Controllers
         }
     }
 }
+
+
